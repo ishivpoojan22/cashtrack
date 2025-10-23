@@ -1,4 +1,4 @@
-import 'package:cashtrack/expense_list.dart';
+import 'package:cashtrack/widget/expenses_list/expense_list.dart';
 import 'package:cashtrack/models/expense.dart';
 import 'package:flutter/material.dart';
 
@@ -33,6 +33,10 @@ class _ExpensesState extends State<Expenses> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('CashTracker'),
+        actions: [IconButton(onPressed: () {}, icon: const Icon(Icons.add))],
+      ),
       body: Column(
         children: [
           Text('the Chart'),
