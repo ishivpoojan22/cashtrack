@@ -1,5 +1,6 @@
 import 'package:cashtrack/widget/expenses_list/expense_list.dart';
 import 'package:cashtrack/models/expense.dart';
+import 'package:cashtrack/widget/new_expenses.dart';
 import 'package:flutter/material.dart';
 
 class Expenses extends StatefulWidget {
@@ -30,12 +31,25 @@ class _ExpensesState extends State<Expenses> {
       category: Category.travel,
     ),
   ];
+
+  void _openAddExpenseOverlay() {
+    showModalBottomSheet(
+      context: context,
+      builder: (ctx) => NewExpenses(),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('CashTracker'),
-        actions: [IconButton(onPressed: () {}, icon: const Icon(Icons.add))],
+        actions: [
+          IconButton(
+            onPressed: _openAddExpenseOverlay,
+            icon: const Icon(Icons.add),
+          ),
+        ],
       ),
       body: Column(
         children: [
