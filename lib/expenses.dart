@@ -1,3 +1,4 @@
+import 'package:cashtrack/expense_list.dart';
 import 'package:cashtrack/models/expense.dart';
 import 'package:flutter/material.dart';
 
@@ -16,13 +17,13 @@ class _ExpensesState extends State<Expenses> {
       date: DateTime.now(),
       category: Category.work,
     ),
-     Expense(
+    Expense(
       title: 'Cinema',
       amount: 10,
       date: DateTime.now(),
       category: Category.movie,
     ),
-         Expense(
+    Expense(
       title: 'Travel',
       amount: 15,
       date: DateTime.now(),
@@ -32,7 +33,12 @@ class _ExpensesState extends State<Expenses> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: const Column(children: [Text('the Chart'), Text('Expenses')]),
+      body: Column(
+        children: [
+          Text('the Chart'),
+          Expanded(child: ExpenseList(expenses: _registerExpenses)),
+        ],
+      ),
     );
   }
 }
