@@ -16,11 +16,6 @@ class NewExpenses extends StatefulWidget {
 }
 
 class _NewExpenses extends State<NewExpenses> {
-  // var _enteredTitle = '';
-
-  // void _saveTitleInput(String inputValue) {
-  //   _enteredTitle = inputValue;
-  // }
   final _titleController = TextEditingController();
   final _amountController = TextEditingController();
   DateTime? _selectedDate;
@@ -96,7 +91,6 @@ class _NewExpenses extends State<NewExpenses> {
             child: Padding(
               padding: EdgeInsets.fromLTRB(16, 48, 16, keyBoardSpace + 16),
               child: Column(
-                // mainAxisSize: MainAxisSize.min,
                 children: [
                   // Title input
                   if (width >= 600)
@@ -105,7 +99,6 @@ class _NewExpenses extends State<NewExpenses> {
                       children: [
                         Expanded(
                           child: TextField(
-                            // onChanged: _saveTitleInput,
                             controller: _titleController,
                             maxLength: 50,
                             decoration: const InputDecoration(
@@ -129,7 +122,6 @@ class _NewExpenses extends State<NewExpenses> {
                     )
                   else
                     TextField(
-                      // onChanged: _saveTitleInput,
                       controller: _titleController,
                       maxLength: 50,
                       decoration: const InputDecoration(label: Text('Title')),

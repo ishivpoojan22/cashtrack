@@ -13,7 +13,6 @@ class ExpenseItem extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(20),
         child: Row(
-          // crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             // Amount on the left
             Column(
@@ -21,10 +20,7 @@ class ExpenseItem extends StatelessWidget {
               children: [
                 Text(
                   '\$${expense.amount.toStringAsFixed(2)}',
-                  style: const TextStyle(
-                    // fontWeight: FontWeight.bold,
-                    fontSize: 16,
-                  ),
+                  style: const TextStyle(fontSize: 16),
                 ),
               ],
             ),
@@ -37,7 +33,6 @@ class ExpenseItem extends StatelessWidget {
                 expense.title,
                 textAlign: TextAlign.center,
                 style: TextStyle(fontWeight: FontWeight.w800, fontSize: 16),
-                // style: Theme.of(context).textTheme.titleLarge,
               ),
             ),
 
