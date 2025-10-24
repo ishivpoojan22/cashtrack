@@ -74,6 +74,7 @@ class _NewExpenses extends State<NewExpenses> {
         category: _selectedCategory,
       ),
     );
+    Navigator.pop(context);
   }
 
   @override
@@ -88,9 +89,9 @@ class _NewExpenses extends State<NewExpenses> {
     return Padding(
       padding: EdgeInsets.fromLTRB(
         16,
+        48,
         16,
         16,
-        MediaQuery.of(context).viewInsets.bottom + 16,
       ),
       child: Column(
         mainAxisSize: MainAxisSize.min,

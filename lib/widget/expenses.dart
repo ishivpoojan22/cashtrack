@@ -37,7 +37,13 @@ class _ExpensesState extends State<Expenses> {
       context: context,
       isScrollControlled: true,
       useSafeArea: true,
-      builder: (ctx) => NewExpenses(onAddExpense: _addExpenses),
+      constraints: BoxConstraints(
+        maxHeight: MediaQuery.of(context).size.height,
+      ),
+      builder: (ctx) => SizedBox(
+        height: MediaQuery.of(context).size.height,
+        child: NewExpenses(onAddExpense: _addExpenses),
+      ),
     );
   }
 
@@ -47,8 +53,39 @@ class _ExpensesState extends State<Expenses> {
     });
   }
 
+  void _removeExpense(Expense expense) {
+    final expenseIndex = _registerExpenses.indexOf(expense);
+    setState(() {
+      _registerExpenses.remove(expense);
+    });
+    ScaffoldMessenger.of(context).clearSnackBars();
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        duration: Duration(seconds: 3),
+        content: Text('Expense Deleted'),
+        action: SnackBarAction(
+          label: 'Undo',
+          onPressed: () {
+            setState(() {
+              _registerExpenses.insert(expenseIndex, expense);
+            });
+          },
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
+    Widget mainContent = const Center(
+      child: Text('No expense found, Start adding some!'),
+    );
+    if (_registerExpenses.isNotEmpty) {
+      mainContent = ExpenseList(
+        expenses: _registerExpenses,
+        onRemoveExpense: _removeExpense,
+      );
+    }
     return Scaffold(
       appBar: AppBar(
         title: Text('CashTracker'),
@@ -62,7 +99,7 @@ class _ExpensesState extends State<Expenses> {
       body: Column(
         children: [
           Text('the Chart'),
-          Expanded(child: ExpenseList(expenses: _registerExpenses)),
+          Expanded(child: mainContent),
         ],
       ),
     );
