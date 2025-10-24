@@ -9,10 +9,11 @@ class ExpenseItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+      margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
       child: Padding(
-        padding: const EdgeInsets.all(16),
+        padding: const EdgeInsets.all(20),
         child: Row(
+          // crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             // Amount on the left
             Column(
@@ -21,7 +22,7 @@ class ExpenseItem extends StatelessWidget {
                 Text(
                   '\$${expense.amount.toStringAsFixed(2)}',
                   style: const TextStyle(
-                    fontWeight: FontWeight.bold,
+                    // fontWeight: FontWeight.bold,
                     fontSize: 16,
                   ),
                 ),
@@ -35,10 +36,8 @@ class ExpenseItem extends StatelessWidget {
               child: Text(
                 expense.title,
                 textAlign: TextAlign.center,
-                style: const TextStyle(
-                  fontWeight: FontWeight.w600,
-                  fontSize: 16,
-                ),
+                style: TextStyle(fontWeight: FontWeight.w800, fontSize: 16),
+                // style: Theme.of(context).textTheme.titleLarge,
               ),
             ),
 
