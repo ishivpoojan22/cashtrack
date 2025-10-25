@@ -38,20 +38,12 @@ Track spending, categorize transactions, and visualize your financial habits —
 | **Enum** | Category management |
 | *(Optional)* Hive/SQLite | Local database for persistent storage |
 
-lib/
-├── main.dart
-├── models/
-│ └── expense.dart
-├── widgets/
-│ ├── expense_item.dart
-│ └── expense_list.dart
-├── screens/
-│ └── expenses.dart
-└── utils/
-└── category_icon.dart
+## 📂 Folder Structure
+
+ <img width="339" height="298" alt="Screenshot 2025-10-25 153919" src="https://github.com/user-attachments/assets/966a5cb5-74b6-4fb6-a293-bcfd3ac7977f" />
 
 
----
+
 
 ## 🚀 Getting Started
 
@@ -64,8 +56,9 @@ Make sure you have:
 - A connected device or emulator
 
 ### 2️⃣ Clone the Repository
-```bash
+
 git clone https://github.com/ishivpoojan22/cashtrack.git
+
 cd cashtrack
 
 3️⃣ Install Dependencies
@@ -113,5 +106,5 @@ Home Screen
 
 
 
-## 📂 Folder Structure
+
 
